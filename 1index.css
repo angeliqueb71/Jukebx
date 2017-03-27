@@ -1,0 +1,58 @@
+#play {
+  position: absolute;
+  left: 0%;
+  transition: 0.3s;
+  padding: 30px;
+  width: 90px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  background-color: gray;
+  border-radius: 0 5px 5px 0;
+}
+#play :hover {
+  color: #4CAF50;
+  right: 35;
+}
+#forwardBtn :hover {
+  color: red;
+  left: auto;
+
+}
+#pauseBtn {
+  top: 35%;
+  background-color: #4CAF50;
+}
+#stopBtn {
+  color: red;
+  top: 45%;
+  background-color: #F00F40;
+}
+#backBtn {
+  top: 55%;
+  background-color: #4CAF50;
+}
+#forwardBtn {
+  top: 65%;
+  background-color: #4CAF50;
+}
+#pauseBtn, #stopBtn, #backBtn, #forwardBtn{
+  position: absolute;
+  left: 0%;
+  transition: 0.3s;
+  padding-bottom: 25px;
+  width: 90px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+.tb {
+  margin: 0px auto;
+  text-align: center;
+  transition: 0.3s;
+  padding: 80px;
+  width: 75px;
+  text-decoration: none;
+  font-size: 50px;
+}
