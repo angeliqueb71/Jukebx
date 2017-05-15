@@ -6,44 +6,29 @@
     <title>Jukebox</title>
   </head>
   <body>
-    <h1>JukeBox</h1>
+    <h1></h1>
 
-     <audio id="songBtn"> <source src="Twentyone.mp3" preload="auto"></audio>
+        <audio id="song" src=""></audio>
+        <center><div id="name"></div></center>
+        <center><img src="" id="cover"></center>
 
-        <button id="play" class= "butt">
-         Play
-        <i class="fa fa-play" aria-hidden="true"></i>
-        </button>
-        <br>
-          <button id="pauseBtn">
-          <i class="fa fa-pause" aria-hidden="true"></i>
-          Pause
-         </button>
-
-         <button id="stopBtn">
-         <i class="fa fa-stop-circle" aria-hidden="true"></i>
-         Stop
-        </button>
-
-        <button id="backBtn">
-        <i class="fa fa-stop-circle" aria-hidden="true"></i>
-        Back
-       </button>
+       <img id= "img" src="http://static1.squarespace.com/static/52ab25f7e4b01acd4711e11e/t/52b36e39e4b06dcbcbf1887b/1493854524811/?format=1500w" alt="">
 
 
-         <button id="forwardBtn">
-          <i class="fa fa-forward" aria-hidden="true"></i>
-          Forward
-         </button>
-        </div>
+         <a href="#" id="play"><i class="fa fa-play fa-3x" aria-hidden="true"></i></a>
+         <a href="#" id="pause"><i class="fa fa-pause fa-3x" aria-hidden="true"></i></a>
+         <a href="#" id="prev"><i class="fa fa-backward fa-3x" aria-hidden="true"></i></a>
+         <a href="#" id="next"><i class="fa fa-forward fa-3x" aria-hidden="true"></i></a>
 
-        <div class= "tb">
-        <span><input id= "track" type="#"  placeholder="Search..."></span>
-        <span><input type="button" name="" value="Search"></span>
-      </div>
-        <!-- <ul class="player">
-  		<li data-src="audio/Twentyone.mp3">Stressed Out</li> -->
-  		<!-- <li data-src="audio/AmazingLee.mp3">AmazingLee</li> -->
+
+        <center><div id="textField">
+         <form class="">
+           <input type="text" placeholder="Enter Song Title">
+           <input type="Submit" value="Submit">
+         </form>
+        </div></center>
+
+
 
     <script src="https://use.fontawesome.com/144ed3a5c7.js"></script>
     <script src="1jukebox.js"></script>

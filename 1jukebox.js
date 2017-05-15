@@ -1,110 +1,82 @@
-var playBtn = document.querySelector("#play")
-var pauseBtn = document.querySelector("#pauseBtn")
-var stopBtn = document.querySelector("#stopBtn")
-var backBtn = document.querySelector("#backBtn")
-var forwardBtn = document.querySelector("#forwardBtn")
-
-var songBtn = document.querySelector("#songBtn")
-
-function Jukebox () {
- this.songArray = []
+function Jukebox(){
+  this.audioList = [];
+  this.nameList = [];
+  this.coverList = [];
 }
 
-Jukebox.prototype.start = function () {
-  songBtn.play()
+Jukebox.prototype.addTrack = function(track,name,cover){
+  this.audioList.push(track);
+  this.nameList.push(name);
+  this.coverList.push(cover);
+};
+
+var jukebox = new Jukebox();
+jukebox.addTrack("Twentyone.mp3", "Blurry Face", "Blurryface.png");
+jukebox.addTrack("HardTimes.mp3","Hard Times", "hardTimes.jpg");
+jukebox.addTrack("Sing_Street.mp3", "Drive it like you stole", "sing_street.jpeg");
+
+var i=0;
+
+Jukebox.prototype.play = function(){
+  document.getElementById("cover").src = this.coverList[i];
+  document.getElementById("name").innerText = this.nameList[i];
+  song.play();
+};
+
+song.src=jukebox.audioList[i];
+
+Jukebox.prototype.pause = function(){
+  song.pause();
+};
+
+Jukebox.prototype.prev = function(){
+  i--;
+  if(i>=0){
+    song.pause();
+    song.src = jukebox.audioList[i];
+    document.getElementById("cover").src = this.coverList[i];
+    document.getElementById("name").innerText = this.nameList[i];
+    song.play();
+  } else{
+    i = jukebox.audioList.length-1;
+    song.pause();
+    song.src = jukebox.audioList[i];
+    song.play();
+  }
 }
 
-var jukebox = new Jukebox()
-
-playBtn.addEventListener("click", function(event){
-   event.preventDefault
-   jukebox.start()
-   console.log("i was clicked");
- })
-
- Jukebox.prototype.pause = function(){
-   songBtn.pause()
+Jukebox.prototype.next = function(){
+  i++;
+  if (i<jukebox.audioList.length){
+    song.pause();
+    song.src = jukebox.audioList[i];
+    document.getElementById("cover").src = this.coverList[i];
+    document.getElementById("name").innerText = this.nameList[i];
+    song.play();
+  } else {
+    i = 0;
+    song.pause();
+    song.src = jukebox.audioList[i];
+    song.play();
+  }
 }
 
- pauseBtn.addEventListener("click", function(event){
-   event.preventDefault
-  jukebox.pause()
-  console.log("i was clicked")
-
- })
-
- Jukebox.prototype.stop = function(){
-   songBtn.stop()
-}
-
- stopBtn.addEventListener("click", function(event){
-   event.preventDefault
-  jukebox.stop()
-  console.log("i was clicked")
-
- })
-
- Jukebox.prototype.songBtn = function(){
-   this.songArray.push()
-}
-
- // Jukebox.prototype.pauseBtn = function(){
- //   audio.pause()
- // }
- backBtn.addEventListener("click", function(event){
-   event.preventDefault
-  jukebox.stop()
-  console.log("i was clicked")
+play.addEventListener("click",function(event){
+  event.preventDefault();
+  jukebox.play();
 })
 
- Jukebox.prototype.backBtn= function(){
-     i++
-     if(i < jukebox.songArray.length){
-       audio.pause()
-       audio.src=jukebox.songArray[i]
-       audio.play()
-     }
-     else {
-        i = 0;
-        audio.pause()
-        audio.src=jukebox.songArray[i]
-        audio.play()
-     }
-   }
+pause.addEventListener("click",function(event){
+  event.preventDefault();
+  jukebox.pause();
+})
 
-   forwardBtn.addEventListener("click", function(event){
-     event.preventDefault
-    jukebox.next()
-    console.log("i was clicked")
-  })
+prev.addEventListener("click",function(event){
+  event.preventDefault();
+  jukebox.prev();
+})
 
-   Jukebox.prototype.forwardBtn = function(){
-    i--
-    if (i >= 0 ){
-      audio.pause()
-      audio.src=jukebox.songArray[i]
-      audio.play()
-    }
-    else {
-      i = jukebox.songArray.length -1
-      audio.pause()
-      audio.src=jukebox.songArray[i]
-      audio.play()
-    }
-  }
-
-
-  //  Jukebox.prototype.nextBtn = function(){
-  //     i--
-  //     if (i >= 0 ){
-  //       audio.pause()
-  //       audio.src=jukebox.songArray[i]
-  //       audio.play()
-  //     }
-  //     else {
-  //       i = jukebox.songArray.length -1
-  //       audio.pause()
-  //       audio.src=jukebox.songArray[i]
-  //       audio.play()
-  //     }
-  //  }
+next.addEventListener("click",function(event){
+  event.preventDefault();
+  jukebox.next();
+})
